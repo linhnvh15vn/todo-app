@@ -1,11 +1,20 @@
+import { useEffect } from 'react';
 import AddForm from './components/add-form';
 import Header from './components/header';
 import TodoFilter from './components/todo-filter';
 import TodoList from './components/todo-list';
+import { useThemeStore } from './store/use-theme-store';
 import { useTodoStore } from './store/use-todo-store';
 
 export default function App() {
   const { todoList } = useTodoStore();
+  const { theme } = useThemeStore();
+
+  useEffect(() => {
+    theme === 'dark'
+      ? document.documentElement.classList.add('dark')
+      : document.documentElement.classList.remove('dark');
+  }, [theme]);
 
   return (
     <div className="flex flex-col antialiased min-h-screen container">
