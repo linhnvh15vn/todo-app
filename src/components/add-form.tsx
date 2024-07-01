@@ -15,7 +15,7 @@ export default function AddForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="px-5 py-2.5 lg:px-6 lg:py-5 bg-white rounded-md flex gap-3 lg:gap-6 items-center">
+      <div className="px-5 py-2.5 lg:px-6 lg:py-5 bg-card rounded-md flex gap-3 lg:gap-6 items-center">
         <button
           type="submit"
           className="size-5 lg:size-6 rounded-full border"
