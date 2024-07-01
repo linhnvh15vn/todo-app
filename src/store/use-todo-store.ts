@@ -4,6 +4,7 @@ import { type Todo } from '../types';
 
 interface TodoStore {
   todoList: Todo[];
+  set: (todoList: Todo[]) => void;
   create: (title: string) => void;
   update: (id: string) => void;
   remove: (id: string) => void;
@@ -22,6 +23,9 @@ export const useTodoStore = create<TodoStore>()(
   persist(
     (set) => ({
       todoList: [],
+
+      set: (todoList) => set({ todoList }),
+
       create: (title) =>
         set((state) => ({ todoList: [...state.todoList, createTodo(title)] })),
 
