@@ -2,20 +2,17 @@ import AddForm from './components/add-form';
 import Header from './components/header';
 import TodoFilter from './components/todo-filter';
 import TodoList from './components/todo-list';
+import { useTodoStore } from './store/use-todo-store';
 
 export default function App() {
-  const todoList = [
-    { id: '1', title: 'Complete online JavaScript course', isCompleted: true },
-    { id: '2', title: 'Jog around the park 3x', isCompleted: false },
-    { id: '3', title: '10 minutes meditation', isCompleted: false },
-  ];
+  const { todoList } = useTodoStore();
 
   return (
     <div className="flex flex-col antialiased min-h-screen container">
       <Header />
       <div className="space-y-4">
         <AddForm />
-        <TodoList todoList={todoList} />
+        {todoList.length ? <TodoList todoList={todoList} /> : <div></div>}
         <TodoFilter />
       </div>
 
