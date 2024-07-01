@@ -5,7 +5,13 @@ export default {
     extend: {
       container: {
         center: true,
-        padding: '1.5rem',
+        padding: {
+          DEFAULT: '1.5rem',
+          md: 0,
+        },
+        screens: {
+          md: '540px',
+        },
       },
       backgroundImage: {
         'desktop-dark': "url('/images/bg-desktop-dark.jpg')",
