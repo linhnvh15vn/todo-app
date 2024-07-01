@@ -1,7 +1,8 @@
+import { type Todo } from '../types';
 import TodoItem from './todo-item';
 
 interface Props {
-  todoList: any;
+  todoList: Todo[];
 }
 
 export default function TodoList({ todoList }: Props) {

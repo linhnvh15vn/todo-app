@@ -1,5 +1,7 @@
+import { type Todo } from '../types';
+
 interface Props {
-  todo: any;
+  todo: Todo;
 }
 
 export default function TodoItem({ todo }: Props) {
