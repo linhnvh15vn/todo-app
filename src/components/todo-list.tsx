@@ -8,13 +8,34 @@ import {
 import { useTodoStore } from '../store/use-todo-store';
 import { type Todo } from '../types';
 import TodoItem from './todo-item';
+import TodoFilter from './todo-filter';
+import { useCallback } from 'react';
 
 interface Props {
   todoList: Todo[];
 }
 
 export default function TodoList({ todoList }: Props) {
-  const { set, removeCompleted } = useTodoStore();
+  const { filter, set, removeCompleted } = useTodoStore();
+
+  // const dataByStatus = useCallback(() => {
+  //   console.log('a');
+
+  //   switch (filter) {
+  //     case 'all':
+  //       return todoList;
+  //     case 'active':
+  //       return todoList.filter((todo) => todo.isCompleted === false);
+  //     case 'completed':
+  //       return todoList.filter((todo) => todo.isCompleted === true);
+  //     default:
+  //       break;
+  //   }
+  // }, []);
+
+  const getQty = () => {
+    return todoList.filter((todo) => todo.isCompleted === false).length;
+  };
 
   const handleDragEnd = (result: DropResult) => {
     if (!result.destination) {
@@ -52,8 +73,15 @@ export default function TodoList({ todoList }: Props) {
       </DragDropContext>
 
       <div className="bg-card flex justify-between items-center pt-4 pb-5 px-5 text-xs lg:px-6 lg:text-sm lg:py-4 text-muted-foreground rounded-b-md">
-        <p>{todoList.length} items left</p>
-        <button type="button" onClick={removeCompleted}>
+        <p>{getQty()} items left</p>
+        <div className="hidden lg:block">
+          <TodoFilter />
+        </div>
+        <button
+          type="button"
+          onClick={removeCompleted}
+          className="hover:text-foreground"
+        >
           Clear completed
         </button>
       </div>

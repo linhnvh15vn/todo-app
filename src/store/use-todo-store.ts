@@ -4,6 +4,8 @@ import { type Todo } from '../types';
 
 interface TodoStore {
   todoList: Todo[];
+  filter: 'all' | 'active' | 'completed' | string;
+  setFilter: (filter: string) => void;
   set: (todoList: Todo[]) => void;
   create: (title: string) => void;
   update: (id: string) => void;
@@ -23,6 +25,9 @@ export const useTodoStore = create<TodoStore>()(
   persist(
     (set) => ({
       todoList: [],
+      filter: 'all',
+
+      setFilter: (filter) => set({ filter }),
 
       set: (todoList) => set({ todoList }),
 

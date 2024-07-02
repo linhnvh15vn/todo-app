@@ -22,7 +22,9 @@ export default function App() {
       <div className="space-y-4">
         <AddForm />
         {todoList.length ? <TodoList todoList={todoList} /> : <div></div>}
-        <TodoFilter />
+        <div className="py-4 bg-card text-center rounded-md shadow-md lg:hidden">
+          <TodoFilter />
+        </div>
       </div>
 
       <p className="text-center mt-10 text-sm text-muted-foreground">

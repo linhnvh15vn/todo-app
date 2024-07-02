@@ -1,9 +1,30 @@
+import { useTodoStore } from '../store/use-todo-store';
+
 export default function TodoFilter() {
+  const { filter, setFilter } = useTodoStore();
+
+  const filterList = [
+    { label: 'All', value: 'all' },
+    { label: 'Active', value: 'active' },
+    { label: 'Completed', value: 'completed' },
+  ];
+
   return (
-    <div className="container bg-white flex justify-center gap-5 rounded-md shadow-md py-4 text-xs font-bold lg:hidden">
-      <span>All</span>
-      <span>Active</span>
-      <span>Completed</span>
+    <div className="space-x-5 font-bold">
+      {filterList.map((f) => (
+        <button
+          type="button"
+          key={f.value}
+          onClick={() => setFilter(f.value)}
+          className={`text-sm ${
+            filter === f.value
+              ? 'text-blue-600 hover:text-blue-500'
+              : 'text-muted-foreground hover:text-foreground'
+          }`}
+        >
+          {f.label}
+        </button>
+      ))}
     </div>
   );
 }
