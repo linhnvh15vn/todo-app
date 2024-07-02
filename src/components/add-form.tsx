@@ -15,15 +15,15 @@ export default function AddForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="px-5 py-3.5 lg:px-6 lg:py-5 bg-card rounded-md flex gap-3 lg:gap-6 items-center">
+      <div className="flex items-center gap-3 rounded-md bg-card px-5 py-3.5 lg:gap-6 lg:px-6 lg:py-5">
         <button
           type="submit"
-          className="size-5 lg:size-6 rounded-full border"
+          className="size-5 rounded-full border lg:size-6"
         ></button>
         <input
           type="text"
           value={title}
-          className="flex-1 bg-transparent outline-none border-none text-xs lg:text-lg placeholder:text-muted-foreground text-foreground"
+          className="flex-1 border-none bg-transparent text-xs text-foreground outline-none placeholder:text-muted-foreground lg:text-lg"
           placeholder="Create a new todo…"
           onChange={(e) => setTitle(e.target.value)}
         />

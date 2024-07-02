@@ -5,7 +5,7 @@ export default function Header() {
 
   return (
     <header>
-      <div className="flex justify-between items-center pt-12 pb-10 lg:pt-20">
+      <div className="flex items-center justify-between pb-10 pt-12 lg:pt-20">
         <h1 className="text-xl font-bold tracking-[12px] text-white lg:text-[40px]">
           TODO
         </h1>

@@ -17,17 +17,17 @@ export default function App() {
   }, [theme]);
 
   return (
-    <div className="flex flex-col antialiased min-h-screen container">
+    <div className="container flex min-h-screen flex-col antialiased">
       <Header />
       <div className="space-y-4">
         <AddForm />
         {todoList.length ? <TodoList todoList={todoList} /> : <div></div>}
-        <div className="py-4 bg-card text-center rounded-md shadow-md lg:hidden">
+        <div className="rounded-md bg-card py-4 text-center shadow-md lg:hidden">
           <TodoFilter />
         </div>
       </div>
 
-      <p className="text-center mt-10 text-sm text-muted-foreground">
+      <p className="mt-10 text-center text-sm text-muted-foreground">
         Drag and drop to reorder list
       </p>
     </div>
