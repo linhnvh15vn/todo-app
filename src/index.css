@@ -29,10 +29,6 @@
 }
 
 @layer base {
-  * {
-    @apply transition-all;
-  }
-
   body {
     font-family: 'Josefin Sans', sans-serif;
   }

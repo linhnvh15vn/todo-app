@@ -9,7 +9,6 @@ import { useTodoStore } from '../store/use-todo-store';
 import { type Todo } from '../types';
 import TodoItem from './todo-item';
 import TodoFilter from './todo-filter';
-import { useCallback } from 'react';
 
 interface Props {
   todoList: Todo[];
@@ -18,20 +17,18 @@ interface Props {
 export default function TodoList({ todoList }: Props) {
   const { filter, set, removeCompleted } = useTodoStore();
 
-  // const dataByStatus = useCallback(() => {
-  //   console.log('a');
-
-  //   switch (filter) {
-  //     case 'all':
-  //       return todoList;
-  //     case 'active':
-  //       return todoList.filter((todo) => todo.isCompleted === false);
-  //     case 'completed':
-  //       return todoList.filter((todo) => todo.isCompleted === true);
-  //     default:
-  //       break;
-  //   }
-  // }, []);
+  const dataByStatus = () => {
+    switch (filter) {
+      case 'all':
+        return todoList;
+      case 'active':
+        return todoList.filter((todo) => todo.isCompleted === false);
+      case 'completed':
+        return todoList.filter((todo) => todo.isCompleted === true);
+      default:
+        return todoList;
+    }
+  };
 
   const getQty = () => {
     return todoList.filter((todo) => todo.isCompleted === false).length;
@@ -53,7 +50,7 @@ export default function TodoList({ todoList }: Props) {
         <Droppable droppableId="todoList">
           {(provider) => (
             <div {...provider.droppableProps} ref={provider.innerRef}>
-              {todoList.map((todo, index) => (
+              {dataByStatus().map((todo, index) => (
                 <Draggable key={todo.id} draggableId={todo.id} index={index}>
                   {(provider) => (
                     <div
