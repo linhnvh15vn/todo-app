@@ -1,4 +1,5 @@
 import { useTodoStore } from '../store/use-todo-store';
+import { Checkbox } from './checkbox';
 import { type Todo } from '../types';
 
 interface Props {
@@ -10,12 +11,10 @@ export default function TodoItem({ todo }: Props) {
 
   return (
     <div className="flex items-center gap-3 px-5 py-4 bg-card first:rounded-t-md border-border border-b lg:px-6 lg:py-5 lg:gap-6">
-      <input
-        type="checkbox"
+      <Checkbox
         id={todo.id}
-        className="cursor-pointer"
         checked={todo.isCompleted}
-        onChange={() => update(todo.id)}
+        onCheckedChange={() => update(todo.id)}
       />
       <label
         htmlFor={todo.id}
