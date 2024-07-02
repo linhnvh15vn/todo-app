@@ -27,7 +27,7 @@ export default function TodoList({ todoList }: Props) {
   };
 
   return (
-    <div className="shadow-lg bg-card">
+    <div className="shadow-lg bg-card rounded-md">
       <DragDropContext onDragEnd={handleDragEnd}>
         <Droppable droppableId="todoList">
           {(provider) => (
@@ -51,7 +51,7 @@ export default function TodoList({ todoList }: Props) {
         </Droppable>
       </DragDropContext>
 
-      <div className="bg-card flex justify-between items-center pt-4 pb-5 px-5 text-xs lg:px-6 lg:py-4">
+      <div className="bg-card flex justify-between items-center pt-4 pb-5 px-5 text-xs lg:px-6 lg:text-sm lg:py-4 text-muted-foreground rounded-b-md">
         <p>{todoList.length} items left</p>
         <button type="button" onClick={removeCompleted}>
           Clear completed

@@ -25,6 +25,9 @@ export default {
         foreground: 'hsl(var(--foreground))',
         card: 'hsl(var(--card))',
         border: 'hsl(var(--border))',
+        muted: {
+          foreground: 'hsl(var(--muted-foreground))',
+        },
       },
     },
   },

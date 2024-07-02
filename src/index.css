@@ -12,6 +12,8 @@
     --card: 0 0 100%;
 
     --border: 236 32% 92%;
+
+    --muted-foreground: 235 9% 61%;
   }
 
   .dark {
@@ -21,10 +23,16 @@
     --card: 235 24% 19%;
 
     --border: 235 14% 26%;
+
+    --muted-foreground: 235 16% 43%;
   }
 }
 
 @layer base {
+  * {
+    @apply transition-all;
+  }
+
   body {
     font-family: 'Josefin Sans', sans-serif;
   }

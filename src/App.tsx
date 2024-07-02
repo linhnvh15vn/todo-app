@@ -25,7 +25,9 @@ export default function App() {
         <TodoFilter />
       </div>
 
-      <p className="text-center mt-10 text-sm">Drag and drop to reorder list</p>
+      <p className="text-center mt-10 text-sm text-muted-foreground">
+        Drag and drop to reorder list
+      </p>
     </div>
   );
 }

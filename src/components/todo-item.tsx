@@ -19,7 +19,9 @@ export default function TodoItem({ todo }: Props) {
       <label
         htmlFor={todo.id}
         className={`text-xs flex-1 cursor-pointer lg:text-lg ${
-          todo.isCompleted ? 'line-through text-[#d1d2da]' : 'text-foreground'
+          todo.isCompleted
+            ? 'line-through text-[#d1d2da] dark:text-[#4d5067]'
+            : 'text-foreground'
         }`}
       >
         {todo.title}
