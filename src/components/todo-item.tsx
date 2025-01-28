@@ -10,7 +10,7 @@ export default function TodoItem({ todo }: Props) {
   const { update, remove } = useTodoStore();
 
   return (
-    <div className="flex items-center gap-3 border-b border-border bg-card px-5 py-4 first:rounded-t-md lg:gap-6 lg:px-6 lg:py-5">
+    <div className="flex h-12 items-center gap-3 border-b border-border bg-card px-5 lg:h-16 lg:gap-6 lg:px-6">
       <Checkbox
         id={todo.id}
         checked={todo.isCompleted}

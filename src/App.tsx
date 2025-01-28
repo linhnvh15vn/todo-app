@@ -21,15 +21,20 @@ export default function App() {
       <Header />
       <div className="space-y-4">
         <AddForm />
-        {todoList.length ? <TodoList todoList={todoList} /> : <div></div>}
-        <div className="rounded-md bg-card py-4 text-center shadow-md lg:hidden">
-          <TodoFilter />
-        </div>
+        {todoList.length ? (
+          <>
+            <TodoList todoList={todoList} />
+            <div className="flex h-12 items-center justify-center rounded-md bg-card shadow-md lg:hidden">
+              <TodoFilter />
+            </div>
+            <p className="pt-10 text-center text-sm text-muted-foreground">
+              Drag and drop to reorder list
+            </p>
+          </>
+        ) : (
+          <p className="text-white">No items. Why not add one above.</p>
+        )}
       </div>
-
-      <p className="mt-10 text-center text-sm text-muted-foreground">
-        Drag and drop to reorder list
-      </p>
     </div>
   );
 }
